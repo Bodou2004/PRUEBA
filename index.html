@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <meta name="theme-color" content="#0f172a">
+  <title>WebAR - MindAR + Three.js</title>
+  
+  <link rel="stylesheet" href="./css/style.css">
+
+  <!-- Polyfill para compatibilidad con Import Maps en versiones anteriores de Safari en iOS -->
+  <script async src="https://cdn.jsdelivr.net/npm/es-module-shims@1.10.0/dist/es-module-shims.min.js"></script>
+
+  <!-- Definición de dependencias ES Modules (Three.js v0.160.0 y MindAR v1.2.5) -->
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+      "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/",
+      "mindar-image-three": "https://cdn.jsdelivr.net/npm/mind-ar@1.2.5/dist/mindar-image-three.prod.js"
+    }
+  }
+  </script>
+
+  <!-- Módulo principal de la aplicación -->
+  <script type="module" src="./js/app.js"></script>
+</head>
+<body>
+
+  <!-- Contenedor principal donde MindAR inserta el feed de video y el canvas WebGL -->
+  <div id="ar-container"></div>
+
+  <!-- Pantalla inicial previa a la activación de la cámara -->
+  <div id="welcome-screen" class="welcome-screen">
+    <div class="welcome-card">
+      <div class="icon-container">
+        <svg class="ar-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M4 8V4m0 0h4M4 4l5 5m11-5h-4m4 0v4m0-4l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4"/>
+        </svg>
+      </div>
+      <h1 class="title">WebAR Test</h1>
+      <p class="description">Esta experiencia utiliza la cámara de tu dispositivo para proyectar contenido en Realidad Aumentada sin necesidad de instalar aplicaciones.</p>
+      
+      <div class="instruction-box">
+        <p class="instruction-text">Apuntá la cámara hacia la imagen</p>
+      </div>
+
+      <button id="btn-start" class="btn-start">INICIAR EXPERIENCIA</button>
+
+      <!-- Mensaje de error (oculto por defecto) -->
+      <div id="error-message" class="error-box hidden" role="alert"></div>
+    </div>
+  </div>
+
+  <!-- Capa de interfaz superpuesta durante la experiencia AR -->
+  <div id="ar-ui" class="ar-ui hidden">
+    <!-- Indicador de estado discreto -->
+    <div id="status-indicator" class="status-indicator searching">
+      <span class="status-dot"></span>
+      <span id="status-text">Buscando imagen...</span>
+    </div>
+
+    <!-- Botón para detener la cámara y regresar a la pantalla inicial -->
+    <button id="btn-stop" class="btn-stop" aria-label="Detener cámara">DETENER CÁMARA</button>
+  </div>
+
+</body>
+</html>
