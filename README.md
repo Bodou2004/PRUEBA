@@ -23,7 +23,10 @@ Infraestructura base estática y modular para experiencias de Realidad Aumentada
 │
 └── assets/
     ├── models/
-    │   └── puerta-3d.glb    # Modelo 3D de la puerta con animación de apertura y textos
+    │   ├── puerta-3d.glb    # Parte 1: Puerta 3D con apertura animada y textos
+    │   ├── palabras1.glb    # Parte 2: Primer modelo 3D de palabras animadas
+    │   ├── palabras2.glb    # Parte 2: Segundo modelo 3D de palabras animadas
+    │   └── palabras3.glb    # Parte 2: Tercer modelo 3D de palabras animadas
     ├── textures/            # Reservado para mapas de texturas e imágenes
     └── audio/               # Reservado para efectos sonoros o pistas de audio
 ```
