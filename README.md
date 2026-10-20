@@ -23,7 +23,7 @@ Infraestructura base estática y modular para experiencias de Realidad Aumentada
 │
 └── assets/
     ├── models/
-    │   └── desplegable.glb  # Modelo 3D del folleto A3 animado (apertura y pose final)
+    │   └── puerta-3d.glb    # Modelo 3D de la puerta con animación de apertura y textos
     ├── textures/            # Reservado para mapas de texturas e imágenes
     └── audio/               # Reservado para efectos sonoros o pistas de audio
 ```
